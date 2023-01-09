@@ -9,9 +9,9 @@ services:
     volumes:
       - ../volume/db/data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=my_db
+      - POSTGRES_DB=test.db
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_PASSWORD=123
     ports:
       - "54321:5432"
     networks:
