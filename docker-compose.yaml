@@ -1,19 +1,19 @@
 version: '3'
 
 services:
-
   db:
-    container_name: testbd
+    container_name: db
     image: postgres
-    hostname: testdb
+    hostname: db
     volumes:
       - ../volume/db/data:/var/lib/postgresql/data
     environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
       - POSTGRES_DB=test.db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123
     ports:
-      - "54321:5432"
+      - "5432:5432"
     networks:
       - default
   pgadmin:
@@ -28,7 +28,7 @@ services:
       - ../volume/pg:/var/lib/pgadmin
     ports:
       - "5050:80"
-    restart: on-failure
+    restart: always
     networks:
       - default
   examapi:

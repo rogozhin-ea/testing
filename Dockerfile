@@ -6,4 +6,4 @@ RUN apk update && pip install --upgrade pip && apk add postgresql-dev gcc g++ py
 RUN pip install -r requirements.txt
 EXPOSE 1234
 ENV FLASK_APP=start.py
-ENTRYPOINT ["python", "-m", "flask", "run", "--host=0.0.0.0"]
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
